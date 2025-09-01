@@ -1,0 +1,17 @@
+package com.ecommerceapi.ecommerceapi.dto;
+
+import java.util.List;
+
+public class CartListDTO {
+
+    private List<CartDTO> cartDTO;
+
+    public List<CartDTO> getCartDTO() {
+        return cartDTO;
+    }
+
+    public CartListDTO setCartDTO(List<CartDTO> cartDTO) {
+        this.cartDTO = cartDTO;
+        return this;
+    }
+}

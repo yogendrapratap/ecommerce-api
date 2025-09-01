@@ -1,0 +1,3 @@
+2025-07-16T17:06:53.254+05:30  INFO 5897 --- [ecommerce-api] [restartedMain] c.e.e.EcommerceApiApplication            : Starting EcommerceApiApplication using Java 17.0.15 with PID 5897 (/Users/yogendrapratapsingh/Documents/development/2025/ecommerce-api/target/classes started by yogendrapratapsingh in /Users/yogendrapratapsingh/Documents/development/2025/ecommerce-api)
+2025-07-16T17:06:53.255+05:30  INFO 5897 --- [ecommerce-api] [restartedMain] c.e.e.EcommerceApiApplication            : No active profile set, falling back to 1 default profile: "default"
+2025-07-16T17:06:55.494+05:30  INFO 5897 --- [ecommerce-api] [restartedMain] c.e.e.EcommerceApiApplication            : Started EcommerceApiApplication in 2.338 seconds (process running for 344.486)
