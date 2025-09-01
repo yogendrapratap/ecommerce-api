@@ -11,13 +11,18 @@ public class Orders {
     @Id
     private String id;
 
+    private Long orderNumber;
+
+    private String status;
+
     private List<Order> orders;
 
     public  Orders() {
     }
 
-    public Orders(String id, List<Order> orders) {
-        this.id = id;
+    public Orders(String status, Long orderNumber, List<Order> orders) {
+        this.status = status;
+        this.orderNumber = orderNumber;
         this.orders = orders;
     }
 
@@ -27,6 +32,24 @@ public class Orders {
 
     public Orders setId(String id) {
         this.id = id;
+        return this;
+    }
+
+    public Long getOrderNumber() {
+        return orderNumber;
+    }
+
+    public Orders setOrderNumber(Long orderNumber) {
+        this.orderNumber = orderNumber;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Orders setStatus(String status) {
+        this.status = status;
         return this;
     }
 

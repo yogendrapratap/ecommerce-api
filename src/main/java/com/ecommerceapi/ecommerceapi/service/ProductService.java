@@ -57,7 +57,7 @@ public class ProductService {
                 .map(product -> {
                     ProductDTO productDTO = new ProductDTO();
                     productDTO.setId(product.getId());
-                    productDTO.setProductId(product.getProductId().toString());
+                    productDTO.setProductId(product.getProductId());
                     productDTO.setProductName(product.getProductName());
                     productDTO.setDescription(product.getDescription());
                     productDTO.setPrice(product.getPrice());
@@ -72,13 +72,19 @@ public class ProductService {
         return productListDTO;
     }
 
-    @Log
-    public ProductDTO searchProduct(Long productId) {
-        Product products = productRepository.findAllByProductId(productId);
+
+    public ProductDTO searchProduct(Long product_id) {
+        Product products = productRepository.findAllByProductId(product_id);
         ecommerceValidator.validateProduct(products);
+
 
         return modelMapper.map(products, ProductDTO.class);
     }
 
 
+    public ProductDTO createProduct(ProductDTO productDTO) {
+        Product product =  modelMapper.map(productDTO, Product.class);
+        product = productRepository.save(product);
+        return modelMapper.map(product, ProductDTO.class);
+    }
 }

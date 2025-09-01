@@ -34,8 +34,8 @@ class ProductSearchControllerTest {
     void testSearchByProductName() throws Exception {
 
         ProductDTO product = new ProductDTO()
-                .setId(1L)
-                .setProductId("PRD001")
+                .setId("1L")
+                .setProductId(1L)
                 .setProductName("Samsung TV")
                 .setDescription("Smart LED TV")
                 .setPrice(new BigDecimal("49999.00"));
@@ -60,8 +60,8 @@ class ProductSearchControllerTest {
     void testSearchProductsWithPagination() throws Exception {
         // Given
         ProductDTO product = new ProductDTO()
-                .setId(2L)
-                .setProductId("PAG001")
+                .setId("2L")
+                .setProductId(1L)
                 .setProductName("Laptop")
                 .setDescription("High-end gaming laptop")
                 .setPrice(new BigDecimal("150000"));

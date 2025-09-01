@@ -8,9 +8,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,6 +42,17 @@ public class ProductSearchController {
     )
     public ResponseEntity<ProductListDTO> searchProducts(@RequestParam int pageNumber, @RequestParam int pageSize) {
         return ResponseEntity.ok(productService.searchProducts(pageNumber, pageSize));
+    }
+
+    @PostMapping(value = "/products/create")
+    @Operation(
+            summary = "Create products in the system with pagination",
+            description = "Get an cart details for a user with pagination",
+            tags = {"Product Service"}
+    )
+    public ResponseEntity<String> createProducts(@RequestBody ProductDTO productDTO) {
+        productService.createProduct(productDTO);
+        return ResponseEntity.ok("Product created successfully");
     }
 
 }

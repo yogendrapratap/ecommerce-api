@@ -49,14 +49,7 @@ public class KafkaProducerService {
         List<Header> headerList = List.of(headers);
         var record =  new ProducerRecord<>(kafkaTopic, null, key, value, headerList);
 
-        CompletableFuture<SendResult<String, String>> completableFuture = kafkaTemplate.send(record);
-        return completableFuture.whenComplete((result, throwable) -> {
-            if (throwable != null) {
-                handleFailure(throwable);
-            } else {
-                handleSuccess(key, value, result);
-            }
-        });
+        return kafkaTemplate.send(record);
     }
 
     private void handleSuccess(String key, String value, SendResult<String, String> sendresult) {

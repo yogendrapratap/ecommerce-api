@@ -7,6 +7,7 @@ import com.ecommerceapi.ecommerceapi.feignclient.BankAppClient;
 import com.ecommerceapi.ecommerceapi.feignclient.FundTransferResponseDTO;
 import com.ecommerceapi.ecommerceapi.repository.OrderRepository;
 import com.ecommerceapi.ecommerceapi.validator.EcommerceValidator;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,6 +18,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
@@ -49,7 +51,7 @@ class OrderServiceTest {
     }
 
     @Test
-    void testPlaceOrderSuccess() {
+    void testPlaceOrderSuccess() throws ExecutionException, JsonProcessingException, InterruptedException {
         Long userId = 1L;
 
         // Arrange: mock user
@@ -58,9 +60,9 @@ class OrderServiceTest {
         userDTO.setLastName("Doe");
 
         // Arrange: mock product list
-        ProductDTO product1 = new ProductDTO().setProductId("101").setProductName("Phone")
+        ProductDTO product1 = new ProductDTO().setProductId(101L).setProductName("Phone")
                 .setDescription("Smartphone").setPrice(new BigDecimal("10000.00"));
-        ProductDTO product2 = new ProductDTO().setProductId("102").setProductName("Headphones")
+        ProductDTO product2 = new ProductDTO().setProductId(102L).setProductName("Headphones")
                 .setDescription("Wireless").setPrice(new BigDecimal("2000.00"));
 
         ProductListDTO productListDTO = new ProductListDTO();

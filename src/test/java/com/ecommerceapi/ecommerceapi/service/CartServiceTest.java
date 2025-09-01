@@ -49,7 +49,7 @@ class CartServiceTest {
                 .setQuantity(2);
 
         productDTO = new ProductDTO();
-        productDTO.setId(1L);
+        productDTO.setId("1L");
         productDTO.setPrice(BigDecimal.valueOf(100));
         productDTO.setProductName("Test Product");
 
@@ -171,7 +171,7 @@ class CartServiceTest {
         cart.setQuantity(5);
 
         ProductDTO productDTO = new ProductDTO();
-        productDTO.setProductId("1"); // String as per your matching logic
+        productDTO.setProductId(1L); // String as per your matching logic
         productDTO.setProductName("Test");
         productDTO.setQuantity(0); // Should be updated
 
@@ -253,7 +253,7 @@ class CartServiceTest {
     @Test
     void testSingleMatch() throws Exception {
         ProductDTO product = new ProductDTO();
-        product.setProductId("1");
+        product.setProductId(1L);
         product.setPrice(BigDecimal.valueOf(50));
 
         CartDTO cart = new CartDTO(1L, 1L, 2);
@@ -269,10 +269,10 @@ class CartServiceTest {
     @Test
     void testMultipleMatches() throws Exception {
         ProductDTO prod1 = new ProductDTO();
-        prod1.setProductId("11");
+        prod1.setProductId(11L);
         prod1.setPrice(BigDecimal.valueOf(10));
         ProductDTO prod2 = new ProductDTO();
-        prod2.setProductId("22");
+        prod2.setProductId(22L);
         prod2.setPrice(BigDecimal.valueOf(20));
 
         CartDTO cart1 = new CartDTO(11L, 1L, 3);
@@ -290,7 +290,7 @@ class CartServiceTest {
     @Test
     void testNoMatches() throws Exception {
         ProductDTO product = new ProductDTO();
-        product.setProductId("100");
+        product.setProductId(100L);
         product.setPrice(BigDecimal.valueOf(100));
 
         CartDTO cart = new CartDTO(999L, 1L, 5);

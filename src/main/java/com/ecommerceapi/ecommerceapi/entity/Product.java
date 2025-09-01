@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class Product {
     @Id
     @Field("id")
-    private Long id;
+    private String id;
 
     @Field("product_name")
     private String productName;
@@ -29,7 +29,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long id, String productName, Long productId, String description, BigDecimal price) {
+    public Product(String id, String productName, Long productId, String description, BigDecimal price) {
         this.id = id;
         this.productName = productName;
         this.productId = productId;
@@ -37,11 +37,11 @@ public class Product {
         this.price = price;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public Product setId(Long id) {
+    public Product setId(String id) {
         this.id = id;
         return this;
     }

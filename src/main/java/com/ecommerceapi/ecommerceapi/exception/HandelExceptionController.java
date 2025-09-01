@@ -10,6 +10,7 @@ public class HandelExceptionController {
 
     @ExceptionHandler(ECommerceAPIValidationException.class)
     public ErrorMessage handleProjectValidationException(ECommerceAPIValidationException ex, WebRequest request) {
+        ex.printStackTrace();
         return new ErrorMessage(
                 HttpStatus.BAD_REQUEST.value(),
                 ex.getMessage(),
@@ -19,6 +20,7 @@ public class HandelExceptionController {
 
     @ExceptionHandler(Exception.class)
     public ErrorMessage handleProjectValidationException(Exception ex, WebRequest request) {
+        ex.printStackTrace();
         return new ErrorMessage(
                 HttpStatus.BAD_REQUEST.value(),
                 ex.getMessage(),

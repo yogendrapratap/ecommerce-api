@@ -42,11 +42,11 @@ class ProductServiceTest {
     @BeforeEach
     void setup() {
         product = new Product();
-        product.setId(1L);
+        product.setId("1L");
         product.setProductName("iPhone");
 
         productDTO = new ProductDTO();
-        productDTO.setId(1L);
+        productDTO.setId("1L");
         productDTO.setProductName("iPhone");
     }
 
@@ -103,7 +103,7 @@ class ProductServiceTest {
         product.setPrice(BigDecimal.valueOf(500));
 
         ProductDTO productDTO = new ProductDTO();
-        productDTO.setProductId("1");
+        productDTO.setProductId(1L);
         productDTO.setProductName("Phone");
         productDTO.setPrice(BigDecimal.valueOf(500));
 

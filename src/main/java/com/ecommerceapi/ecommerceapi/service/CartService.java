@@ -60,7 +60,7 @@ public class CartService {
         productListDTO.getProducts().forEach(productDTO -> {
             CartDTO matchCartDTO = cartDTOs.stream()
                     .filter(cartDTO -> String.valueOf(cartDTO.getProductId())
-                            .equalsIgnoreCase(productDTO.getProductId()))
+                            .equalsIgnoreCase(productDTO.getProductId().toString()))
                     .findFirst()
                     .orElse(null);
 
@@ -69,7 +69,7 @@ public class CartService {
         });
     }
 
-    @Log
+
     public CartListDTO addToCart(CartListDTO cartListDTO, Long userId) {
         //List<Cart> existingCart = cartRepository.findAllByUserId(userId);
 
@@ -142,7 +142,7 @@ public class CartService {
         return productListDTO.getProducts().stream()
                 .flatMap(productDTO -> cartDTOs.stream()
                         .filter(cartDTO -> String.valueOf(cartDTO.getProductId())
-                                .equalsIgnoreCase(productDTO.getProductId()))
+                                .equalsIgnoreCase(productDTO.getProductId().toString()))
                         .map(cartDTO -> productDTO.getPrice().multiply(
                                 new BigDecimal(cartDTO.getQuantity()))))
                 .filter(Objects::nonNull)

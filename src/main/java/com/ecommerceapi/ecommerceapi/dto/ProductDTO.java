@@ -1,21 +1,25 @@
 package com.ecommerceapi.ecommerceapi.dto;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.math.BigDecimal;
 
 public class ProductDTO {
 
-    private Long id;
+
+    private String id;
     private String productName;
-    private String productId;
+    private Long productId;
     private String description;
     private BigDecimal price;
     private Integer quantity;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public ProductDTO setId(Long id) {
+    public ProductDTO setId(String id) {
         this.id = id;
         return this;
     }
@@ -29,11 +33,11 @@ public class ProductDTO {
         return this;
     }
 
-    public String getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public ProductDTO setProductId(String productId) {
+    public ProductDTO setProductId(Long productId) {
         this.productId = productId;
         return this;
     }
