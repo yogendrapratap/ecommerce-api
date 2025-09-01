@@ -49,7 +49,7 @@ class CartServiceTest {
                 .setQuantity(2);
 
         productDTO = new ProductDTO();
-        productDTO.setId(1);
+        productDTO.setId(1L);
         productDTO.setPrice(BigDecimal.valueOf(100));
         productDTO.setProductName("Test Product");
 

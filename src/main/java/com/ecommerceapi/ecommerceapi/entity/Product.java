@@ -3,23 +3,27 @@ package com.ecommerceapi.ecommerceapi.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.math.BigDecimal;
 
 //@Entity
-@Document(collection = "PRODUCT")
+@Document(collection = "product")
 public class Product {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Field("id")
     private Long id;
 
-
+    @Field("product_name")
     private String productName;
 
-
+    @Field("product_id")
     private Long productId;
 
+    @Field("description")
     private String description;
+
+    @Field("price")
     private BigDecimal price;
 
     public Product() {

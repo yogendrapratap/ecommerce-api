@@ -3,7 +3,7 @@ package com.ecommerceapi.ecommerceapi.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "CART")
+@Document(collection = "cart")
 public class Cart {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)

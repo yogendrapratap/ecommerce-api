@@ -34,7 +34,7 @@ class ProductSearchControllerTest {
     void testSearchByProductName() throws Exception {
 
         ProductDTO product = new ProductDTO()
-                .setId(1)
+                .setId(1L)
                 .setProductId("PRD001")
                 .setProductName("Samsung TV")
                 .setDescription("Smart LED TV")
@@ -60,7 +60,7 @@ class ProductSearchControllerTest {
     void testSearchProductsWithPagination() throws Exception {
         // Given
         ProductDTO product = new ProductDTO()
-                .setId(2)
+                .setId(2L)
                 .setProductId("PAG001")
                 .setProductName("Laptop")
                 .setDescription("High-end gaming laptop")

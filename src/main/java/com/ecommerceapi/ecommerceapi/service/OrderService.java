@@ -5,6 +5,7 @@ import com.ecommerceapi.ecommerceapi.dto.ProductListDTO;
 
 import com.ecommerceapi.ecommerceapi.dto.UserDTO;
 import com.ecommerceapi.ecommerceapi.entity.Order;
+import com.ecommerceapi.ecommerceapi.entity.Orders;
 import com.ecommerceapi.ecommerceapi.feignclient.BankAppClient;
 import com.ecommerceapi.ecommerceapi.feignclient.FundTransferResponseDTO;
 import com.ecommerceapi.ecommerceapi.feignclient.UserFundTransferDTO;
@@ -63,9 +64,13 @@ public class OrderService {
 
         ecommerceValidator.validate(fundTransferResponseDTO.getAmount(), productListDTO.getBasketPrice());
 
-        List<Order> orders = getOrders(userId, fundTransferResponseDTO, productListDTO, user);
+        List<Order> orderList= getOrders(userId, fundTransferResponseDTO, productListDTO, user);
 
-        orderRepository.saveAll(orders);
+        Orders ordersDocument = new Orders();
+        ordersDocument.setOrders(orderList);
+
+
+        orderRepository.save(ordersDocument);
         cartService.cleanUpCartData(userId);
     }
 

@@ -4,18 +4,18 @@ import java.math.BigDecimal;
 
 public class ProductDTO {
 
-    private Integer id;
+    private Long id;
     private String productName;
     private String productId;
     private String description;
     private BigDecimal price;
     private Integer quantity;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public ProductDTO setId(Integer id) {
+    public ProductDTO setId(Long id) {
         this.id = id;
         return this;
     }

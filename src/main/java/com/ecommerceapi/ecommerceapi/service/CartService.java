@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
@@ -120,6 +121,7 @@ public class CartService {
                 .setProductId(dto.getProductId())
                 .setUserId(userId)
                 .setQuantity(dto.getQuantity())
+                .setId(randomLongNumber())
         ).collect(Collectors.toList());
     }
 
@@ -137,7 +139,6 @@ public class CartService {
     }
 
     private static BigDecimal getTotalOfBasket(ProductListDTO productListDTO, List<CartDTO> cartDTOs) {
-
         return productListDTO.getProducts().stream()
                 .flatMap(productDTO -> cartDTOs.stream()
                         .filter(cartDTO -> String.valueOf(cartDTO.getProductId())
@@ -146,6 +147,12 @@ public class CartService {
                                 new BigDecimal(cartDTO.getQuantity()))))
                 .filter(Objects::nonNull)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    private Long randomLongNumber(){
+        Random random = new Random();
+        long randomLong = random.nextLong();
+        return Math.abs(randomLong);
     }
 
 

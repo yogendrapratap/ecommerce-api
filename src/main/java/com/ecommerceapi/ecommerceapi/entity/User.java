@@ -3,34 +3,38 @@ package com.ecommerceapi.ecommerceapi.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDate;
 
 //@Entity(name = "USERS")
-@Document(collection = "USERS")
+@Document(collection = "users")
 public class User {
 
-    @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+        @Id
+        @Field("id")
+        private Long id;
 
+        @Field("first_name")
+        private String firstName;
 
-    private String firstName;
+        @Field("last_name")
+        private String lastName;
 
+        @Field("date_of_birth")
+        private LocalDate dateOfBirth;
 
-    private String lastName;
+        @Field("phone_number")
+        private String phoneNumber;
 
-    private LocalDate dateOfBirth;
+        @Field("address")
+        private String address;
 
-    private String phoneNumber;
+        @Field("username")
+        private String username;
 
-
-    private String address;
-
-
-    private String username;
-
-    private String password;
+        @Field("password")
+        private String password;
 
     public User() {
     }

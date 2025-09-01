@@ -54,8 +54,19 @@ public class ProductService {
     public ProductListDTO searchProductListForCart(List<Long> productIds) {
         List<Product> products = productRepository.findAllByProductIdIn(productIds);
         List<ProductDTO> productDTOs = products.stream()
-                .map(product -> modelMapper.map(product, ProductDTO.class))
-                .toList();
+                .map(product -> {
+                    ProductDTO productDTO = new ProductDTO();
+                    productDTO.setId(product.getId());
+                    productDTO.setProductId(product.getProductId().toString());
+                    productDTO.setProductName(product.getProductName());
+                    productDTO.setDescription(product.getDescription());
+                    productDTO.setPrice(product.getPrice());
+                    return productDTO;
+                }).collect(toList());
+
+
+                //.map(product -> modelMapper.map(product, ProductDTO.class))
+               // .toList();
         ProductListDTO productListDTO = new ProductListDTO();
         productListDTO.setProducts(productDTOs);
         return productListDTO;

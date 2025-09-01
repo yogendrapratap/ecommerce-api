@@ -46,7 +46,7 @@ class ProductServiceTest {
         product.setProductName("iPhone");
 
         productDTO = new ProductDTO();
-        productDTO.setId(1);
+        productDTO.setId(1L);
         productDTO.setProductName("iPhone");
     }
 

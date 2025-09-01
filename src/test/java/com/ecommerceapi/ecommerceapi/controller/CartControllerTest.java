@@ -36,7 +36,7 @@ class CartControllerTest {
     @Test
     void testFindCartProductDetails() throws Exception {
         ProductDTO product = new ProductDTO()
-                .setId(1)
+                .setId(1L)
                 .setProductId("PRD001")
                 .setProductName("Shoes")
                 .setDescription("Running shoes")
