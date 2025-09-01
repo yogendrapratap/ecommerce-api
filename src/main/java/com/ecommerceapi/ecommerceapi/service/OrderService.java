@@ -78,7 +78,8 @@ public class OrderService {
         Orders ordersDocument = new Orders();
         ordersDocument.setOrders(orderList);
         ordersDocument.setStatus("PENDING");
-        ordersDocument.setOrderNumber(getCurrentEpochMillis());
+        ordersDocument.setTotalOrderPrice(fundTransferResponseDTO.getAmount());
+        ordersDocument.setOrderNumber(System.currentTimeMillis());
         ordersDocument = orderRepository.save(ordersDocument);
         cartService.cleanUpCartData(userId);
 
@@ -145,15 +146,6 @@ public class OrderService {
             logger.error("Kafka send failed: {}", e.getMessage(), e);
             return false;
         }
-    }
-
-
-    private long getCurrentEpochMillis() {
-        return LocalDate.now()
-                .atStartOfDay()
-                .atZone(java.time.ZoneId.systemDefault())
-                .toInstant()
-                .toEpochMilli();
     }
 
     private LocalDate getRandomDeliveryDate() {

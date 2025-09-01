@@ -3,6 +3,7 @@ package com.ecommerceapi.ecommerceapi.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Document(collection = "orders")
@@ -15,14 +16,17 @@ public class Orders {
 
     private String status;
 
+    private BigDecimal totalOrderPrice;
+
     private List<Order> orders;
 
     public  Orders() {
     }
 
-    public Orders(String status, Long orderNumber, List<Order> orders) {
+    public Orders(String status, Long orderNumber, BigDecimal totalOrderPrice, List<Order> orders) {
         this.status = status;
         this.orderNumber = orderNumber;
+        this.totalOrderPrice = totalOrderPrice;
         this.orders = orders;
     }
 
@@ -41,6 +45,15 @@ public class Orders {
 
     public Orders setOrderNumber(Long orderNumber) {
         this.orderNumber = orderNumber;
+        return this;
+    }
+
+    public BigDecimal getTotalOrderPrice() {
+        return totalOrderPrice;
+    }
+
+    public Orders setTotalOrderPrice(BigDecimal totalOrderPrice) {
+        this.totalOrderPrice = totalOrderPrice;
         return this;
     }
 
